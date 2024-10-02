@@ -1,0 +1,51 @@
+﻿<Window x:Class="desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:desktop"
+        mc:Ignorable="d"
+        Title="Nadaj Przesyłkę, PESEL: 00000000000" Height="350" Width="700">
+    <Grid Margin="30 30 30 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <StackPanel Width="250" HorizontalAlignment="Left">
+                <GroupBox Header="Rodzaj przesyłki">
+                <StackPanel>
+                    <RadioButton Content="Pocztówka" Margin="5" IsChecked="True" x:Name="PocztowkaRadio"/>
+                    <RadioButton Content="List" Margin="5" x:Name="ListRadio"/>
+                    <RadioButton Content="Paczka" Margin="5" x:Name="PaczkaRadio"/>
+                </StackPanel>
+            </GroupBox>
+            <Button Content="Sprawdź cenę" Margin="0 5 0 0" Click="CheckPrice"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Image Source="pocztowka.png" x:Name="Image"></Image>
+                <Label Content="Cena: 1,5 zł" FontWeight="Bold" FontSize="22" Margin="20 10 0 0" x:Name="Price"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <GroupBox Header="Dane adresowe">
+                <StackPanel Margin="10">
+                    <Label Content="Ulica z numerem"/>
+                    <TextBox Padding="5"/>
+                    <Label Content="Kod pocztowy"/>
+                    <TextBox Padding="5" Width="120" HorizontalAlignment="Left" x:Name="PostalCode"/>
+                    <Label Content="Miasto"/>
+                    <TextBox Padding="5"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <Button Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Content="Zatwierdź" Margin="0 0 0 3" Click="Submit"/>
+    </Grid>
+</Window>
